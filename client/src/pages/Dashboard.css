@@ -1,0 +1,337 @@
+/**
+ * Dashboard Styles
+ */
+
+.dashboard {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-8);
+}
+
+.dashboard-header h1 {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-1);
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+    margin-bottom: var(--space-8);
+}
+
+.stat-card {
+    display: flex;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+}
+
+.stat-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+}
+
+.stat-icon.storage {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+.stat-icon.files {
+    background: var(--color-success-light);
+    color: var(--color-success);
+}
+
+.stat-icon.folders {
+    background: var(--color-warning-light);
+    color: var(--color-warning);
+}
+
+.stat-icon.clips {
+    background: var(--color-info-light);
+    color: var(--color-info);
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-1);
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.2;
+}
+
+.stat-detail {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: var(--space-1);
+}
+
+.stat-progress {
+    height: 4px;
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-full);
+    margin-top: var(--space-2);
+    overflow: hidden;
+}
+
+.stat-progress-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+    transition: width var(--transition-slow);
+}
+
+/* Quick Actions */
+.quick-actions {
+    margin-bottom: var(--space-8);
+}
+
+.quick-actions h2 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-4);
+}
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+}
+
+.action-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-6);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: var(--color-text-primary);
+    transition: all var(--transition-fast);
+}
+
+.action-card:hover {
+    background: var(--color-bg-tertiary);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.action-card svg {
+    color: var(--color-primary);
+}
+
+.action-card span {
+    font-weight: 500;
+    font-size: 0.9375rem;
+}
+
+/* Recent Section */
+.recent-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+}
+
+.recent-files,
+.recent-clips {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+}
+
+.section-header h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 1rem;
+}
+
+.view-all {
+    font-size: 0.875rem;
+    color: var(--color-primary);
+}
+
+/* File List */
+.file-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-md);
+    transition: background var(--transition-fast);
+}
+
+.file-item:hover {
+    background: var(--color-bg-elevated);
+}
+
+.file-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-primary);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+}
+
+.file-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.file-name {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-meta {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+.star-icon {
+    color: var(--color-warning);
+    flex-shrink: 0;
+}
+
+/* Clip List */
+.clip-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.clip-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-3);
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.clip-item:hover {
+    background: var(--color-bg-elevated);
+}
+
+.clip-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+.clip-preview {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.clip-date {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+}
+
+/* Empty State */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-8);
+    color: var(--color-text-muted);
+    text-align: center;
+}
+
+.empty-state svg {
+    margin-bottom: var(--space-3);
+    opacity: 0.5;
+}
+
+.empty-state p {
+    margin-bottom: var(--space-4);
+    font-size: 0.875rem;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-4);
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .recent-section {
+        grid-template-columns: 1fr;
+    }
+}

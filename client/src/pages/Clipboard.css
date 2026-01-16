@@ -1,0 +1,241 @@
+.clipboard-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.clipboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-6);
+}
+
+.clipboard-header h1 {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-1);
+}
+
+.clipboard-search {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-6);
+}
+
+.clipboard-search input {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--color-text-primary);
+}
+
+.clipboard-search input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.clipboard-search svg {
+    color: var(--color-text-muted);
+}
+
+.clipboard-search button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--color-text-muted);
+    cursor: pointer;
+}
+
+.clips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-5);
+}
+
+.clip-card {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition-fast);
+}
+
+.clip-card:hover {
+    border-color: var(--border-color-hover);
+    box-shadow: var(--shadow-lg);
+}
+
+.clip-card.pinned {
+    border-color: var(--color-primary);
+}
+
+.clip-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-3);
+}
+
+.clip-type {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-2);
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+.clip-actions {
+    display: flex;
+    gap: var(--space-1);
+}
+
+.clip-actions button {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+}
+
+.clip-actions button:hover {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+}
+
+.pin-btn.active {
+    color: var(--color-primary);
+}
+
+.clip-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--space-3);
+}
+
+.clip-content {
+    flex: 1;
+    padding: var(--space-3);
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    max-height: 150px;
+    overflow: hidden;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin-bottom: var(--space-4);
+}
+
+.clip-content.code {
+    font-family: monospace;
+    font-size: 0.8125rem;
+}
+
+.clip-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+}
+
+.clip-meta {
+    display: flex;
+    gap: var(--space-3);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+.clip-meta span {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.copy-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.copy-btn:hover {
+    transform: translateY(-1px);
+}
+
+.copy-btn.copied {
+    background: var(--color-success);
+}
+
+.clip-modal {
+    max-width: 500px;
+}
+
+.type-selector {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.type-selector button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    cursor: pointer;
+}
+
+.type-selector button.active {
+    background: var(--color-primary-light);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.clip-modal textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.character-count {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-align: right;
+    margin-top: var(--space-1);
+}
+
+@media (max-width: 768px) {
+    .clipboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-4);
+    }
+
+    .clips-grid {
+        grid-template-columns: 1fr;
+    }
+}
