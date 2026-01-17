@@ -5,6 +5,7 @@
 
 import path from 'path';
 import fs from 'fs/promises';
+import { createReadStream } from 'fs';
 import { File, Folder, User } from '../models/index.js';
 import {
     HTTP_STATUS,
@@ -295,7 +296,7 @@ export const downloadFile = async (req, res, next) => {
         });
 
         // Stream file
-        const fileStream = require('fs').createReadStream(file.filePath);
+        const fileStream = createReadStream(file.filePath);
         fileStream.pipe(res);
     } catch (error) {
         next(error);
@@ -340,7 +341,7 @@ export const previewFile = async (req, res, next) => {
         });
 
         // Stream file
-        const fileStream = require('fs').createReadStream(file.filePath);
+        const fileStream = createReadStream(file.filePath);
         fileStream.pipe(res);
     } catch (error) {
         next(error);
