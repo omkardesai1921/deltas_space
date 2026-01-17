@@ -43,11 +43,32 @@ app.use(helmet({
 }));
 
 // CORS configuration
+const allowedOrigins = [
+    process.env.CLIENT_URL,
+    'http://localhost:5173',
+    'http://localhost:3000'
+].filter(Boolean);
+
 app.use(cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+
+        if (allowedOrigins.some(allowed => origin.startsWith(allowed.replace(/\/$/, '')))) {
+            return callback(null, true);
+        }
+
+        // In production, also allow any netlify.app subdomain
+        if (origin.includes('.netlify.app')) {
+            return callback(null, true);
+        }
+
+        return callback(null, true); // Allow all for now
+    },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+    exposedHeaders: ['Content-Disposition', 'Content-Length', 'Content-Type']
 }));
 
 // Rate limiting
